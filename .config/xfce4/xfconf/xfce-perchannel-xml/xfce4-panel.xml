@@ -3,7 +3,6 @@
 <channel name="xfce4-panel" version="1.0">
   <property name="panels" type="array">
     <value type="int" value="0"/>
-    <value type="int" value="1"/>
     <property name="panel-0" type="empty">
       <property name="position" type="string" value="p=6;x=960;y=12"/>
       <property name="length" type="uint" value="100"/>
@@ -34,19 +33,6 @@
         <value type="double" value="0.000000"/>
         <value type="double" value="0.000000"/>
         <value type="double" value="0.000000"/>
-        <value type="double" value="1.000000"/>
-      </property>
-    </property>
-    <property name="panel-1" type="empty">
-      <property name="position" type="string" value="p=8;x=259;y=1067"/>
-      <property name="size" type="uint" value="22"/>
-      <property name="length" type="uint" value="100"/>
-      <property name="position-locked" type="bool" value="true"/>
-      <property name="background-style" type="uint" value="1"/>
-      <property name="background-rgba" type="array">
-        <value type="double" value="1.000000"/>
-        <value type="double" value="1.000000"/>
-        <value type="double" value="1.000000"/>
         <value type="double" value="1.000000"/>
       </property>
     </property>
