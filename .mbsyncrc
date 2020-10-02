@@ -1,0 +1,33 @@
+# ACCOUNT INFORMATION
+IMAPAccount gmail-personal
+# Address to connect to
+ Host imap.gmail.com
+ User anu.rup.dey98@gmail.com
+ PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.config/doom/.mbsyncpass.gpg"
+ AuthMechs LOGIN
+ SSLType IMAPS
+ SSLVersions SSLv3
+ CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+# THEN WE SPECIFY LOCAL AND REMOTE STORAGE
+# - THE REMOTE STORAGE IS WHERE WE GET THE MAIL FROM (E.G., THE
+#   SPECIFICATION OF THE IMAP ACCOUNT)
+# - THE LOCAL STORAGE IS WHERE WE STORE THE EMAIL ON OUR COMPUTER
+
+# REMOTE STORAGE
+IMAPStore gmail-personal-remote
+Account gmail-personal
+
+# LOCAL STORAGE
+MaildirStore gmail-personal-local
+Path ~/.email/gmail-personal/
+Inbox ~/.email/gmail-personal/INBOX
+
+Channel gmail-personal
+Master :gmail-personal-remote:
+Slave :gmail-personal-local:
+Patterns "INBOX" "Other" "Archive" "Drafts" "Deleted Items"
+Create Slave
+Sync All
+Expunge Both
+SyncState *
