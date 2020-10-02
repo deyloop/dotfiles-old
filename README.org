@@ -1,0 +1,3 @@
+* Dotfiles
+
+This repository contains my personal dotfiles and scripts to replicate the setup on any machine.
