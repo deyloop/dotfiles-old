@@ -138,7 +138,7 @@ ex ()
   fi
 }
 
-export PATH="$PATH:~/tools/fluttersdk/flutter/bin"
+export PATH="$PATH:~/tools/flutter/bin"
 
 alias dotfiles='/usr/bin/git --git-dir=/home/dac/.dotfiles --work-tree=/home/dac'
 alias ed='emacsclient'
