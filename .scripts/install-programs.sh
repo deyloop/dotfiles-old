@@ -5,7 +5,7 @@
 if command -v pacman &> /dev/null
 then
    sudo pacman -S pacaur 
-   sudo pacaur -S emacs rofi vimix-icon-theme code-oss inkscape
+   pacaur -S emacs rofi vimix-icon-theme code-oss inkscape
 
    # gtk theme
    git clone https://github.com/Zortax/Vimix-Midnight ~/.themes/Vimix-Midnight
