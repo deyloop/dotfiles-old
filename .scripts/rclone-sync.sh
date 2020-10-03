@@ -15,13 +15,13 @@ drivesync() {
             sudo pacman -S --noconfirm rclone
         fi # add to install via other package manager like apt-get
 
-        read -pr "Enter rclone gdrive client ID (see https://rclone.org/drive/#making-your-own-client-id): " VAR_RCLONE_DRIVE_CLIENT_ID
-        read  -pr "Enter rclone gdrive client secret: " VAR_RCLONE_DRIVE_CLIENT_SECRET
+        read -p "Enter rclone gdrive client ID (see https://rclone.org/drive/#making-your-own-client-id): " VAR_RCLONE_DRIVE_CLIENT_ID
+        read  -p "Enter rclone gdrive client secret: " VAR_RCLONE_DRIVE_CLIENT_SECRET
         rclone config create remote-drive drive scope drive client_id "$VAR_RCLONE_DRIVE_CLIENT_ID" client_secret "$VAR_RCLONE_DRIVE_CLIENT_SECRET" 
 
-        read -pr "Enter encryption password: " VAR_ENCRYPTION_PASSWORD
+        read -p "Enter encryption password: " VAR_ENCRYPTION_PASSWORD
         VAR_ENCRYPTION_PASSWORD_OBSCURED=$(echo "$VAR_ENCRYPTION_PASSWORD" | rclone obscure -) 
-        read -pr "Enter salting password:" VAR_SALTING_PASSWORD
+        read -p "Enter salting password:" VAR_SALTING_PASSWORD
         VAR_SALTING_PASSWORD_OBSCURED=$(echo "$VAR_SALTING_PASSWORD" | rclone obscure -)
         rclone config create remote-drive-encrypt crypt remote remote-drive:Private directory_name_encryption false password "$VAR_ENCRYPTION_PASSWORD_OBSCURED" password2 "$VAR_SALTING_PASSWORD_OBSCURED"
 
