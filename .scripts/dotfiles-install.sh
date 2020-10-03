@@ -12,7 +12,7 @@ if [ $? = 0 ]; then
     echo "Checked out dotfiles";
 else
     echo "Backing up pre-existing dotfiles";
-    dotfiles checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles.bkp/{}
+    dotfiles checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | xargs -I{} "mkdir -p \$(dirname .dotfiles.bkp/{}) && mv {} .dotfiles.bkp/{}"
 fi;
 dotfiles checkout
 
