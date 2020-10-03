@@ -12,7 +12,7 @@ drivesync() {
         echo "rclone prerequisite not installed. Installing and configuring..."
         if command -v pacman &> /dev/null
         then
-            sudo pacman -S rclone
+            sudo pacman -S --noconfirm rclone
         fi # add to install via other package manager like apt-get
 
         echo "Enter rclone gdrive client ID (see https://rclone.org/drive/#making-your-own-client-id): "
@@ -35,7 +35,7 @@ drivesync() {
         echo "GNU stow prerequisite not installed. Installing..."
         if command -v pacman &> /dev/null
         then
-            sudo pacman -S stow
+            sudo pacman -S --noconfirm stow
         fi # add to install via other package managers like apt-get.
     fi
     case "$1" in
