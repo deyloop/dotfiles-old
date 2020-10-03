@@ -23,7 +23,7 @@ drivesync() {
         VAR_ENCRYPTION_PASSWORD_OBSCURED=$(echo "$VAR_ENCRYPTION_PASSWORD" | rclone obscure -) 
         read -p "Enter salting password:" VAR_SALTING_PASSWORD
         VAR_SALTING_PASSWORD_OBSCURED=$(echo "$VAR_SALTING_PASSWORD" | rclone obscure -)
-        rclone config create remote-drive-encrypt crypt remote remote-drive:Private filename_encryption "standard" directory_name_encryption false password "$VAR_ENCRYPTION_PASSWORD" password2 "$VAR_SALTING_PASSWORD"
+        rclone config create remote-drive-encrypt crypt remote remote-drive:Private filename_encryption "standard" directory_name_encryption false password $VAR_ENCRYPTION_PASSWORD password2 $VAR_SALTING_PASSWORD
 
     fi
     if ! command -v stow &> /dev/null
