@@ -1,0 +1,19 @@
+#!/bin/bash
+
+git clone --bare https://github.com/AnurupDey/dotfile.git "$HOME/.dotfiles"
+
+dotfiles() {
+    /usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" $@
+}
+
+mkdir -p .dotfiles.bkp
+dotfiles checkout
+if [ $? = 0 ]; then
+    echo "Checked out dotfiles";
+else
+    echo "Backing up pre-existing dotfiles";
+    dotfiles checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles.bkp/{}
+fi;
+dotfiles checkout
+
+dotfiles config status.showUntrackedFiles no
