@@ -1,3 +1,9 @@
 * Dotfiles
 
 This repository contains my personal dotfiles and scripts to replicate the setup on any machine.
+
+** Installation
+
+#+BEGIN_SRC shell
+curl Lks https://bit.ly/36qFBhu | /bin/bash
+#+END_SRC
