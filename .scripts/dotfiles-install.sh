@@ -17,3 +17,8 @@ fi;
 dotfiles checkout
 
 dotfiles config status.showUntrackedFiles no
+
+# setup the remote drives for private files
+. "$HOME/.scripts/rclone-sync.sh"
+
+drivesync down

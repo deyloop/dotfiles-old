@@ -142,3 +142,5 @@ export PATH="$PATH:~/tools/flutter/bin"
 
 alias dotfiles='/usr/bin/git --git-dir=/home/dac/.dotfiles --work-tree=/home/dac'
 alias ed='emacsclient'
+
+. .scripts/rclone-sync.sh
