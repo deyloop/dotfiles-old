@@ -4,6 +4,35 @@ This repository contains my personal dotfiles and scripts to replicate the setup
 
 ** Installation
 
+If migrating to a new machine, use the following to automatically clone all the dotfiles and setup the shell environment correctly. Execute this in a tty so that =XFCE= does not overwrite the cloned configs
+
 #+BEGIN_SRC shell
 curl -Lks https://bit.ly/36qFBhu | /bin/bash
 #+END_SRC
+
+To install the vital software packages, use the following script without leaving the tty:
+#+BEGIN_SRC shell
+source ~/.bashrc
+bash ~/.scripts/install-programs.sh
+#+END_SRC
+
+Restart the machine and log in. Don't log in without restarting.
+#+BEGIN_SRC shell
+shutdown -r now
+#+END_SRC
+
+The remote drives can then be set up using
+#+BEGIN_SRC shell
+drivesync down
+#+END_SRC`
+
+If the =drivesync= does not work, it is most commonly due to the passwords being wrong. Use =rclone config= and edit the remote =remote-drive-encrypt= with the correct passwords and try the above command again.
+
+** Usage
+*** =dotfiles= command
+- Use =dotfiles status= to check what dotfiles have changed
+- Use =dotfiles add <filename>= to add changes made to any file into the repository from anywhere
+- Use =dotfiles commit -m "message"= and =dotfiles push= to push changes to remote
+*** =drivesync= command
+- use =drivesync down= to copy the private files to machine
+- use =drivesync up= to make the local changes be reflected in remote drive
