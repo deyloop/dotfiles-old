@@ -11,7 +11,7 @@ then
    git clone https://github.com/Zortax/Vimix-Midnight ~/.themes/Vimix-Midnight
 
    # flutter and dart sdk
-   git clone https://github.com/flutter/flutter.git
+   git clone https://github.com/flutter/flutter.git ~./tools/flutter
    flutter doctor
    flutter channel beta
    flutter upgrade
