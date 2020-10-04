@@ -15,20 +15,28 @@ drivesync() {
             sudo pacman -S --noconfirm rclone
         fi # add to install via other package manager like apt-get
 
-        read -p "Enter rclone gdrive client ID (see https://rclone.org/drive/#making-your-own-client-id): " VAR_RCLONE_DRIVE_CLIENT_ID
-        read  -p "Enter rclone gdrive client secret: " VAR_RCLONE_DRIVE_CLIENT_SECRET
-        rclone config create remote-drive drive scope drive \
-		client_id "$VAR_RCLONE_DRIVE_CLIENT_ID" \
-		client_secret "$VAR_RCLONE_DRIVE_CLIENT_SECRET" 
+        read -p "rclone client ID (see https://rclone.org/drive/#making-your-own-client-id): " VAR_RCLONE_DRIVE_CLIENT_ID
+        read  -p "rclone client secret: " VAR_RCLONE_DRIVE_CLIENT_SECRET
+        rclone config create private-drive drive \
+            scope drive.appfolder \
+		    client_id "$VAR_RCLONE_DRIVE_CLIENT_ID" \
+		    client_secret "$VAR_RCLONE_DRIVE_CLIENT_SECRET" 
 
-        read -p "Enter encryption password: " VAR_ENCRYPTION_PASSWORD
-        read -p "Enter salting password:" VAR_SALTING_PASSWORD
-        rclone config create remote-drive-encrypt crypt remote \
-		remote-drive:Private \
-		filename_encryption "standard" \
-		directory_name_encryption false \
-		password $(rclone obscure $VAR_ENCRYPTION_PASSWORD) \
-		password2 $(rclone obscure $VAR_SALTING_PASSWORD)
+        read -p "root folder id: " VAR_ROOT_FOLDER_ID
+        rclone config create remote-drive drive \
+            scope drive \
+            client_id "$VAR_RCLONE_DRIVE_CLIENT_ID" \
+            client_secret "$VAR_RCLONE_DRIVE_CLIENT_SECRET" \
+            root_folder_id "$VAR_ROOT_FOLDER_ID"
+        
+        read -p "encryption password: " VAR_ENCRYPTION_PASSWORD
+        read -p "salting password: " VAR_SALTING_PASSWORD
+        rclone config create private-drive-encrypt crypt remote \
+		    private-drive:Private \
+		    filename_encryption "standard" \
+		    directory_name_encryption false \
+		    password $(rclone obscure $VAR_ENCRYPTION_PASSWORD) \
+		    password2 $(rclone obscure $VAR_SALTING_PASSWORD)
 
     fi
     if ! command -v stow &> /dev/null
@@ -40,10 +48,14 @@ drivesync() {
         fi # add to install via other package managers like apt-get.
     fi
     case "$1" in
+        backup)
+            rclone sync -PL "$HOME/Drive" remote-drive:Drive ;;
+        restore)
+            rclone sync -PL remote-drive:Drive "$HOME/Drive" ;;
         up)
-            rclone sync -PL "$HOME/Private" remote-drive-encrypt:;;
+            rclone sync -PL "$HOME/Private" private-drive-encrypt: ;;
         down)
-            rclone sync -PL remote-drive-encrypt: "$HOME/Private"
+            rclone sync -PL private-drive-encrypt: "$HOME/Private"
             CURDIR=$PWD # save current directory so we can return after sync
             cd "$HOME/Private" || return
             stow home
