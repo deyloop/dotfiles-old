@@ -1,5 +1,5 @@
-[submodule "/home/dac/.emacs.d"]
-	path = /home/dac/.emacs.d
+[submodule ".emacs.d"]
+	path = .emacs.d
 	url = https://github.com/hlissner/doom-emacs
 [submodule ".themes/Vimix-Midnight"]
 	path = .themes/Vimix-Midnight
