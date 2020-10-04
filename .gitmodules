@@ -1,0 +1,6 @@
+[submodule "/home/dac/.emacs.d"]
+	path = /home/dac/.emacs.d
+	url = https://github.com/hlissner/doom-emacs
+[submodule ".themes/Vimix-Midnight"]
+	path = .themes/Vimix-Midnight
+	url = https://github.com/Zortax/Vimix-Midnight

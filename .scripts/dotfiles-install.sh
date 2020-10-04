@@ -17,3 +17,4 @@ fi;
 dotfiles checkout
 
 dotfiles config status.showUntrackedFiles no
+dotfiles submodule update --init

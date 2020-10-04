@@ -5,10 +5,7 @@
 if command -v pacman &> /dev/null
 then
    sudo pacman -S pacaur 
-   pacaur -S emacs rofi vimix-icon-theme code-oss inkscape
-
-   # gtk theme
-   git clone https://github.com/Zortax/Vimix-Midnight ~/.themes/Vimix-Midnight
+   pacaur -S emacs rofi vimix-icon-theme community/code inkscape
 
    # flutter and dart sdk
    git clone https://github.com/flutter/flutter.git ~/tools/flutter
@@ -18,7 +15,6 @@ then
    flutter config --enable-web
    
    # installs doom emacs
-   git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
    ~/.emacs.d/bin/doom install
    ~/.emacs.d/bin/doom doctor
    
