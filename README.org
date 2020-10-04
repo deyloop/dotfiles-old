@@ -42,3 +42,11 @@ This is an alias for =git=
 - use =drivesync up= to make the local changes be reflected in remote drive
 
 The files are encrypted on the local machine before sending to the remote drive, so google does not snoop on my secrets.
+
+**** Directory Structure
+***** =~/Private=
+- Private files that need to be synced to Google Drive but need to be encrypted should be kept in =~/Private=.
+- Keep files that need to be symlinked to other locations in =~/Private/home=. Files in =~/Private= but not in =~/Private/home= will be synced with encryption but will not be symlinked automatically.
+
+***** =~/Drive=
+- Normal files that need to be backed up to Google Drive should be kept in =~/Drive=. These will not be encrypted.
