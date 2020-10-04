@@ -46,7 +46,7 @@ drivesync() {
             rclone sync -PL remote-drive-encrypt: "$HOME/Private"
             CURDIR=$PWD # save current directory so we can return after sync
             cd "$HOME/Private" || return
-            stow .
+            stow home
             cd "$CURDIR" || return
             ;;
         *)

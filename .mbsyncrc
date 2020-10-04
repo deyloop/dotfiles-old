@@ -3,7 +3,7 @@ IMAPAccount gmail-personal
 # Address to connect to
  Host imap.gmail.com
  User anu.rup.dey98@gmail.com
- PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.config/doom/.mbsyncpass.gpg"
+ PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/Private/.mbsyncpass.gpg"
  AuthMechs LOGIN
  SSLType IMAPS
  SSLVersions SSLv3
