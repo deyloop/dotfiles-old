@@ -4,8 +4,8 @@
 
 if command -v pacman &> /dev/null
 then
-   sudo pacman -S pacaur 
-   pacaur -S emacs rofi vimix-icon-theme community/code inkscape
+   sudo pacman -S pacaur emacs 
+   pacaur -S rofi vimix-icon-theme community/code inkscape
 
    # flutter and dart sdk
    git clone https://github.com/flutter/flutter.git ~/tools/flutter
