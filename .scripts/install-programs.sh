@@ -13,7 +13,12 @@ then
    flutter channel beta
    flutter upgrade
    flutter config --enable-web
-   
+
+   systemctl --user daemon-reload
+
+   # maps LSHIFT to ESC
+   systemctl --user enable xcape
+   systemctl --user start xcape
    # installs doom emacs
    ~/.emacs.d/bin/doom install
    ~/.emacs.d/bin/doom doctor
