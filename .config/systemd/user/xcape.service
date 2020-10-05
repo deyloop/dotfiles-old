@@ -1,9 +1,0 @@
-[Unit]
-Description=Xcape Daemon - for mapping LSHIFT to ESC
-
-[Service]
-Type=forking
-ExecStart=/usr/bin/xcape -e 'Shift_L=Escape'
-
-[Install]
-WantedBy=default.target

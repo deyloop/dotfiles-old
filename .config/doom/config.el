@@ -87,3 +87,5 @@
   (map! :leader
         :desc "Toggle Breakpoint"
         "c b" #'dap-breakpoint-toggle))
+
+(load! "colorful-points.el")
