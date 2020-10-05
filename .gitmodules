@@ -3,4 +3,4 @@
 	url = https://github.com/Zortax/Vimix-Midnight
 [submodule ".config/emacs"]
 	path = .config/emacs
-	url = https://gitlab.com/hlissner/doom-emacs.git
+	url = https://github.com/hlissner/doom-emacs.git
