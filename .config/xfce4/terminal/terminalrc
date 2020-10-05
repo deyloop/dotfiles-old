@@ -31,4 +31,7 @@ MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=TRUE
 FontName=Monospace 10
+ColorForeground=#5050adadecec
+ColorBackground=#121212121212
+FontUseSystem=TRUE
 
