@@ -140,6 +140,7 @@ ex ()
 
 export PATH="$PATH:~/tools/flutter/bin"
 export PATH="$PATH:~/.config/emacs/bin/"
+export PATH="$PATH:~/.scripts/"
 
 alias dotfiles='/usr/bin/git --git-dir=/home/dac/.dotfiles --work-tree=/home/dac'
 alias ed='emacsclient'

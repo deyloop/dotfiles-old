@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+pscircle --output=/tmp/bgpscircle.png \
+    --output-width=1920 \
+    --output-height=1080 \
+    --background-color=121212FF \
+    --tree-font-face=monospace \
+    --tree-font-color=BBC2CFFF \
+    --tree-font-size=13 \
+    --tree-radius-increment=270,180,150 \
+    --tree-rotate=true \
+    --tree-sector-angle=1.570795 \
+    --tree-center=967:533 \
+    --link-convexity=0.4 \
+    --tree-rotation-angle=-3.14159 \
+    --cpulist-show=0 \
+    --memlist-show=0 \
+    --root-pid=1 \
+    --max-children=35 \
+    --dot-radius=3
