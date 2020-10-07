@@ -51,9 +51,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type nil)
 
-;; Switch to the new window after splitting
-(setq evil-split-window-below t
-      evil-vsplit-window-right t)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -88,8 +85,6 @@
         :desc "Toggle Breakpoint"
         "c b" #'dap-breakpoint-toggle))
 
-(load! "colorful-points.el")
-
 ;; automatically save buffers associated with files on buffer switch
 ;; and on windows switch
 (defadvice switch-to-buffer (before save-buffer-now activate)
@@ -104,3 +99,12 @@
   (when buffer-file-name (save-buffer)))
 (defadvice windmove-right (before other-window-now activate)
   (when buffer-file-name (save-buffer)))
+
+;; Switch to the new window after splitting
+(setq evil-split-window-below t
+      evil-vsplit-window-right t)
+
+(after! company
+  (setq company-minimum-prefix-length 4))
+
+(load! "colorful-points.el")
