@@ -54,3 +54,4 @@
                    :repo "MYDavoodeh/dart-snippets"
                    :files ("*.el" ("snippets" "snippets/*"))))
 (package! impatient-mode)
+(package! treemacs-icons-dired)

@@ -1,12 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
 
-(setq fancy-splash-image "~/.config/doom/black-hole.png")
-
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
+;; Personal Identifiacation
 (setq user-full-name "Anurup Dey"
       user-mail-address "anu.rup.dey98@gmail.com")
 
@@ -19,57 +14,40 @@
                       (mu4e-compose-signature . "---\nAnurup Dey"))
                     t)
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
-;; are the three important ones:
-;;
-;; + `doom-font'
-;; + `doom-variable-pitch-font'
-;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;;
-;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
-;; font string. You generally only need these two:
+;; Theming and Styling
+
+(setq fancy-splash-image "~/.config/doom/black-hole.png")
+
 (setq doom-font (font-spec :family "Hack" :width 'condensed :size 13 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-spacegrey)
+
+(after! treemacs doom-theme
+  (setq doom-themes-treemacs-theme "Default")
+  (doom-themes-treemacs-config)
+  (treemacs-resize-icons 13))
+
+(use-package! treemacs-icons-dired
+  :after treemacs dired
+  :config (treemacs-icons-dired-mode))
+
+(use-package! all-the-icons
+  :config (setq all-the-icons-scale-factor 1.0))
 
 (custom-set-faces
  '(default ((t (:background "#121212"))))
- '(hl-line ((t (:background "#000000"))))
- )
+ '(hl-line ((t (:background "#000000")))))
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/"
-      org-hide-emphasis-markers t)
-
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type nil)
 
-
-;; Here are some additional functions/macros that could help you configure Doom:
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
-;; This will open documentation for it, including demos of how they are used.
-;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
+;; plugin configuration
+(use-package! org
+  :init (setq org-directory "~/org/"
+              org-hide-emphasis-markers t))
 
 (use-package! dap-cpptools
+  :defer t
   :hook ((c-mode c++-mode objc-mode cuda-mode) .
          (lambda () (require 'dap-cpptools) (lsp)))
   :config
@@ -84,6 +62,16 @@
   (map! :leader
         :desc "Toggle Breakpoint"
         "c b" #'dap-breakpoint-toggle))
+
+(after! company
+  (setq company-minimum-prefix-length 4))
+
+;; colors each point (cursor) visible as a different color
+;; usefull when colaboratively editing
+(load! "colorful-points.el")
+
+
+;; Editor configuration
 
 ;; automatically save buffers associated with files on buffer switch
 ;; and on windows switch
@@ -103,8 +91,3 @@
 ;; Switch to the new window after splitting
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
-
-(after! company
-  (setq company-minimum-prefix-length 4))
-
-(load! "colorful-points.el")
