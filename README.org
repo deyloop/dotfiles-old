@@ -40,6 +40,8 @@ This is an alias for =git=
 *** =drivesync= command
 - use =drivesync down= to copy the private files to machine and make symlinks in the proper places
 - use =drivesync up= to make the local changes be reflected in remote drive
+- use =drivesync backup= to update a backup of the =Drive= folder
+- use =drivesync restore= to restore from the last backup of the =Drive= folder
 
 The files are encrypted on the local machine before sending to the remote drive, so google does not snoop on my secrets.
 
