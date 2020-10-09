@@ -98,7 +98,7 @@
     </property>
     <property name="plugin-9" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="firefox.instance14040;firefox.instance1657;firefox.instance1841;firefox.instance2668"/>
+      <property name="mpris-players" type="string" value="firefox.instance1392;firefox.instance14040;firefox.instance1657;firefox.instance1841;firefox.instance2668"/>
     </property>
     <property name="plugin-8" type="string" value="whiskermenu"/>
     <property name="plugin-5" type="string" value="clock">

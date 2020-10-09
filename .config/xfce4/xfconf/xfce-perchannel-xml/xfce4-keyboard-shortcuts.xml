@@ -32,7 +32,6 @@
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;x" type="string" value="xkill"/>
       <property name="Print" type="string" value="xfce4-screenshooter -fd 1"/>
-      <property name="&lt;Super&gt;f" type="string" value="exo-open --launch FileManager"/>
       <property name="&lt;Super&gt;m" type="string" value="exo-open --launch MailReader"/>
       <property name="&lt;Super&gt;w" type="string" value="exo-open --launch WebBrowser"/>
       <property name="&lt;Super&gt;c" type="string" value="galculator"/>
@@ -42,10 +41,11 @@
       <property name="&lt;Super&gt;Return" type="string" value="xfce4-terminal"/>
       <property name="&lt;Super&gt;z" type="string" value="rofi -show drun"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;z" type="string" value="rofi -show run"/>
-      <property name="&lt;Super&gt;e" type="string" value="emacsclient  -create-frame"/>
       <property name="&lt;Super&gt;1" type="string" value="sh /home/dac/.scripts/pscircle-draw.sh">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
+      <property name="&lt;Super&gt;e" type="string" value="emacsclient  -c"/>
+      <property name="&lt;Super&gt;f" type="string" value="emacsclient -c --eval &apos;(dired &quot;~/&quot;)&apos;"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
