@@ -18,7 +18,7 @@
 
 (setq fancy-splash-image "~/.config/doom/black-hole.png")
 
-(setq doom-font (font-spec :family "Hack" :width 'condensed :size 13 :weight 'semi-light)
+(setq doom-font (font-spec :family "Hack" :width 'condensed :size 14 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
 (setq doom-theme 'doom-spacegrey)
@@ -37,7 +37,7 @@
 
 (custom-set-faces
  '(default ((t (:background "#121212"))))
- '(hl-line ((t (:background "#000000")))))
+ '(hl-line ((t (:background "#4D3128")))))
 
 (setq display-line-numbers-type nil)
 
@@ -70,7 +70,6 @@
 ;; usefull when colaboratively editing
 (load! "colorful-points.el")
 
-
 ;; Editor configuration
 
 ;; automatically save buffers associated with files on buffer switch
@@ -91,3 +90,9 @@
 ;; Switch to the new window after splitting
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
+
+
+
+;; 1. What am I?
+;; 2. What is this in front of me?
+;; 3. What is the relation between me and what is in front of me?
