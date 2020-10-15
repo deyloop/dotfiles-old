@@ -18,10 +18,10 @@
 
 (setq fancy-splash-image "~/.config/doom/black-hole.png")
 
-(setq doom-font (font-spec :family "Hack" :width 'condensed :size 14 :weight 'semi-light)
+(setq doom-font (font-spec :family "Hack" :width 'condensed :size 13 :weight 'light)
       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-theme 'doom-spacegrey)
+(setq doom-theme 'doom-nova)
 
 (after! treemacs doom-theme
   (setq doom-themes-treemacs-theme "Default")
@@ -37,7 +37,7 @@
 
 (custom-set-faces
  '(default ((t (:background "#121212"))))
- '(hl-line ((t (:background "#4D3128")))))
+ '(hl-line ((t (:background "#000000")))))
 
 (setq display-line-numbers-type nil)
 
