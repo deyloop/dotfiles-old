@@ -31,7 +31,6 @@ Patterns "INBOX"
 
 # create missing folders everywhere
 SyncState *
-
 Channel sync-gmail-sent
 Master :gmail-personal-remote:"[Gmail]/Sent Mail"
 Slave :gmail-personal-local:sent
@@ -52,6 +51,11 @@ Master :gmail-personal-remote:"[Gmail]/Trash"
 Slave :gmail-personal-local:trash
 Create Slave
 
+Channel sync-gmail-all
+Master :gmail-personal-remote:"[Gmail]/All Mail"
+Slave :gmail-personal-local:all
+Create Slave
+
 # Create all the channels together into a group
 Group gmail
 Channel sync-gmail-default
@@ -59,3 +63,4 @@ Channel sync-gmail-drafts
 Channel sync-gmail-sent
 Channel sync-gmail-trash
 Channel sync-gmail-archive
+Channel sync-gmail-all
