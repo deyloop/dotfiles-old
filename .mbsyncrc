@@ -1,13 +1,13 @@
 # ACCOUNT INFORMATION
 IMAPAccount gmail-personal
 # Address to connect to
- Host imap.gmail.com
- User anu.rup.dey98@gmail.com
- PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/Private/.mbsyncpass.gpg"
- AuthMechs LOGIN
- SSLType IMAPS
- SSLVersions SSLv3
- CertificateFile /etc/ssl/certs/ca-certificates.crt
+Host imap.gmail.com
+User anu.rup.dey98@gmail.com
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/Private/.mbsyncpass.gpg"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions SSLv3
+CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 # THEN WE SPECIFY LOCAL AND REMOTE STORAGE
 # - THE REMOTE STORAGE IS WHERE WE GET THE MAIL FROM (E.G., THE
@@ -20,14 +20,42 @@ Account gmail-personal
 
 # LOCAL STORAGE
 MaildirStore gmail-personal-local
+Subfolders Verbatim
 Path ~/.email/gmail-personal/
 Inbox ~/.email/gmail-personal/INBOX
 
-Channel gmail-personal
+Channel gmail-personal-default
 Master :gmail-personal-remote:
 Slave :gmail-personal-local:
-Patterns "INBOX" "Other" "Archive" "Drafts" "Deleted Items"
-Create Slave
-Sync All
-Expunge Both
+Patterns "INBOX"
+
+# create missing folders everywhere
 SyncState *
+
+Channel sync-gmail-sent
+Master :gmail-personal-remote:"[Gmail]/Sent Mail"
+Slave :gmail-personal-local:sent
+Create Slave
+
+Channel sync-gmail-archive
+Master :gmail-personal-remote:"archive"
+Slave :gmail-personal-local:archive
+Create Slave
+
+Channel sync-gmail-drafts
+Master :gmail-personal-remote:"[Gmail]/Drafts"
+Slave :gmail-personal-local:drafts
+Create Slave
+
+Channel sync-gmail-trash
+Master :gmail-personal-remote:"[Gmail]/Trash"
+Slave :gmail-personal-local:trash
+Create Slave
+
+# Create all the channels together into a group
+Group gmail
+Channel sync-gmail-default
+Channel sync-gmail-drafts
+Channel sync-gmail-sent
+Channel sync-gmail-trash
+Channel sync-gmail-archive

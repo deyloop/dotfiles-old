@@ -5,14 +5,24 @@
 (setq user-full-name "Anurup Dey"
       user-mail-address "anu.rup.dey98@gmail.com")
 
+;; email settings
 (set-email-account! "gmail-personal"
-                    '((mu4e-sent-folder       . "/gmail-personal/Sent Mail")
-                      (mu4e-drafts-folder     . "/gmail-personal/Drafts")
-                      (mu4e-trash-folder      . "/gmail-personal/Trash")
-                      (mu4e-refile-folder     . "/gmail-personal/All Mail")
+                    '((mu4e-sent-folder       . "/gmail-personal/sent")
+                      (mu4e-drafts-folder     . "/gmail-personal/drafts")
+                      (mu4e-trash-folder      . "/gmail-personal/trash")
+                      (mu4e-refile-folder     . "/gmail-personal/archive")
                       (smtpmail-smtp-user     . "anu.rup.dey98@gmail.com")
                       (mu4e-compose-signature . "---\nAnurup Dey"))
                     t)
+
+(setq mu4e-sent-messages-behavior 'delete)
+(setq mu4e-get-mail-command "mbsync -a")
+
+(setq message-send-mail-function 'smtpmail-send-it
+      smtpmail-stream-type 'starttls
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587)
 
 ;; Theming and Styling
 
