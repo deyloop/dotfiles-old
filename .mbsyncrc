@@ -24,6 +24,10 @@ Subfolders Verbatim
 Path ~/.email/gmail-personal/
 Inbox ~/.email/gmail-personal/INBOX
 
+Sync All
+Expunge Both
+Create Slave
+
 Channel gmail-personal-default
 Master :gmail-personal-remote:
 Slave :gmail-personal-local:
@@ -34,27 +38,22 @@ SyncState *
 Channel sync-gmail-sent
 Master :gmail-personal-remote:"[Gmail]/Sent Mail"
 Slave :gmail-personal-local:sent
-Create Slave
 
 Channel sync-gmail-archive
 Master :gmail-personal-remote:"archive"
 Slave :gmail-personal-local:archive
-Create Slave
 
 Channel sync-gmail-drafts
 Master :gmail-personal-remote:"[Gmail]/Drafts"
 Slave :gmail-personal-local:drafts
-Create Slave
 
 Channel sync-gmail-trash
 Master :gmail-personal-remote:"[Gmail]/Trash"
 Slave :gmail-personal-local:trash
-Create Slave
 
 Channel sync-gmail-all
 Master :gmail-personal-remote:"[Gmail]/All Mail"
 Slave :gmail-personal-local:all
-Create Slave
 
 # Create all the channels together into a group
 Group gmail
