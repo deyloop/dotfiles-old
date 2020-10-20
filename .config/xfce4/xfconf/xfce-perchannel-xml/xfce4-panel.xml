@@ -72,6 +72,8 @@
       </property>
       <property name="show-frame" type="bool" value="false"/>
       <property name="names-ordered" type="array">
+        <value type="string" value="anydesk"/>
+        <value type="string" value="teamviewer"/>
         <value type="string" value="task manager"/>
         <value type="string" value="thunar"/>
         <value type="string" value="zoom"/>
@@ -98,7 +100,7 @@
     </property>
     <property name="plugin-9" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="firefox.instance1392;firefox.instance14040;firefox.instance1657;firefox.instance1841;firefox.instance2668"/>
+      <property name="mpris-players" type="string" value="firefox.instance12884;firefox.instance1392;firefox.instance14040;firefox.instance1420;firefox.instance1633;firefox.instance1657;firefox.instance1834;firefox.instance1841;firefox.instance23761;firefox.instance2668;firefox.instance3025;firefox.instance4568"/>
     </property>
     <property name="plugin-8" type="string" value="whiskermenu"/>
     <property name="plugin-5" type="string" value="clock">
