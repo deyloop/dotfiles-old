@@ -10,6 +10,7 @@
     <property name="known_applications" type="array">
       <value type="string" value="discord"/>
       <value type="string" value="Firefox"/>
+      <value type="string" value="MSM Notifier"/>
       <value type="string" value="nm-applet"/>
       <value type="string" value="org.manjaro.pamac.manager"/>
       <value type="string" value="Package Manager"/>

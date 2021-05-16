@@ -88,5 +88,7 @@
     <property name="frame_border_top" type="int" value="0"/>
     <property name="horiz_scroll_opacity" type="bool" value="false"/>
     <property name="vblank_mode" type="string" value="auto"/>
+    <property name="cycle_minimized" type="bool" value="false"/>
+    <property name="zoom_pointer" type="bool" value="true"/>
   </property>
 </channel>
