@@ -107,6 +107,13 @@ set signcolumn=number
 
 " Code folding
 set nofoldenable
+function! MyFoldText()
+    let line = getline(v:foldstart)
+    let foldedlinecount = v:foldend - v:foldstart + 1
+    return ' «» '. foldedlinecount . ' ' . line
+endfunction
+set foldtext=MyFoldText()
+set fillchars=fold:\ 
 
 " Debugging using Vimspector
 let g:vimspector_install_gadgets = ['CodeLLDB']
@@ -123,3 +130,10 @@ nmap <leader>ds <Plug>VimspectorStepInto
 nmap <leader>du <Plug>VimspectorStepOut
 nmap <leader>di <Plug>VimspectorBalloonEval
 xmap <leader>di <Plug>VimspectorBalloonEval
+
+" netrw -- if I ever need it
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
