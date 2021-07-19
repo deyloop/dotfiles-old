@@ -143,6 +143,7 @@ export PATH="$HOME/.config/emacs/bin/:$PATH"
 export PATH="$HOME/.scripts/:$PATH"
 export PATH="$HOME/tools/:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 alias dotfiles='/usr/bin/git --git-dir=/home/dac/.dotfiles --work-tree=/home/dac'
 
