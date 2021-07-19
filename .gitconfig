@@ -3,3 +3,7 @@
 	name = Anurup Dey
 [gitlab]
 	user = AnurupDey
+[init]
+	defaultBranch = main
+[diff]
+	tool = vimdiff

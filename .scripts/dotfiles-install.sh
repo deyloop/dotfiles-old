@@ -3,7 +3,7 @@
 git clone --bare https://github.com/AnurupDey/dotfiles.git "$HOME/.dotfiles"
 
 dotfiles() {
-    /usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" $@
+    /usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" "$@"
 }
 
 mkdir -p .dotfiles.bkp

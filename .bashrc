@@ -138,12 +138,21 @@ ex ()
   fi
 }
 
-export PATH="$PATH:~/tools/flutter/bin"
-export PATH="$PATH:~/.config/emacs/bin/"
-export PATH="$PATH:~/.scripts/"
-export PATH="$PATH:~/tools/"
+export PATH="$HOME/tools/flutter/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin/:$PATH"
+export PATH="$HOME/.scripts/:$PATH"
+export PATH="$HOME/tools/:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 alias dotfiles='/usr/bin/git --git-dir=/home/dac/.dotfiles --work-tree=/home/dac'
-alias ed='emacsclient'
+
+alias emacs-restart='systemctl --user restart emacs'
+alias emacs-start='systemctl --user start emacs'
+alias emacs-stop='systemctl --user stop emacs'
+
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 . ~/.scripts/rclone-sync.sh
+
+# vi keybindings for terminal
+set -o vi

@@ -35,6 +35,8 @@
     <property name="CursorThemeName" type="string" value="Vimix-Doder-dark"/>
     <property name="CursorThemeSize" type="int" value="0"/>
     <property name="DecorationLayout" type="empty"/>
+    <property name="DialogsUseHeader" type="empty"/>
+    <property name="TitlebarMiddleClick" type="empty"/>
     <property name="IMPreeditStyle" type="string" value=""/>
     <property name="IMStatusStyle" type="string" value=""/>
     <property name="IMModule" type="string" value=""/>

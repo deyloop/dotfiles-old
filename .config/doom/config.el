@@ -28,10 +28,10 @@
 
 (setq fancy-splash-image "~/.config/doom/black-hole.png")
 
-(setq doom-font (font-spec :family "Hack" :width 'condensed :size 13 :weight 'light)
+(setq doom-font (font-spec :family "monospace" :size 13)
       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-
-(setq doom-theme 'doom-nova)
+(setq-default line-spacing 0.01)
+(setq doom-theme 'doom-tomorrow-night)
 
 (after! treemacs doom-theme
   (setq doom-themes-treemacs-theme "Default")
@@ -45,10 +45,6 @@
 (use-package! all-the-icons
   :config (setq all-the-icons-scale-factor 1.0))
 
-(custom-set-faces
- '(default ((t (:background "#121212"))))
- '(hl-line ((t (:background "#000000")))))
-
 (setq display-line-numbers-type nil)
 
 ;; plugin configuration
@@ -57,21 +53,29 @@
               org-hide-emphasis-markers t))
 
 (use-package! dap-cpptools
-  :defer t
-  :hook ((c-mode c++-mode objc-mode cuda-mode) .
-         (lambda () (require 'dap-cpptools) (lsp)))
+  :commands dap-debug
+  :hook (c-mode c++-mode objc-mode cuda-mode)
   :config
   (add-hook! 'dap-stopped-hook
     (lambda (_) (call-interactively #'dap-hydra)))
   (setq dap-auto-configure-features '(sessions locals tooltip))
   (setq gc-cons-threshold (* 100 1024 1024)
         read-process-output-max (* 1024 1024)
-        treemacs-space-between-root-nodes nil
-        company-idle-delay 0.0
-        company-minimum-prefix-length 1)
+        treemacs-space-between-root-nodes nil)
   (map! :leader
         :desc "Toggle Breakpoint"
         "c b" #'dap-breakpoint-toggle))
+
+;; (use-package! dap-gdb-lldb
+;;   :hook (rustic-mode)
+;;   :config
+;;   (dap-register-debug-template "Rust::GDB Run Configuration"
+;;         (list :type "gdb"
+;;               :request "launch"
+;;               :name "GDB::Run"
+;;               :gdbpath "rust-gdb"
+;;               :target nil
+;;               :cwd nil)))
 
 (after! company
   (setq company-minimum-prefix-length 4))

@@ -23,7 +23,4 @@ then
    doom install
    doom doctor
    
-   # sets up the emacs daemon
-   systemctl --user enable emacs
-   systemctl --user start emacs
 fi

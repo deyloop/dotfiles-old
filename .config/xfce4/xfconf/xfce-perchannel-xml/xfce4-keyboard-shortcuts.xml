@@ -17,8 +17,18 @@
       <property name="&lt;Super&gt;p" type="empty"/>
       <property name="&lt;Primary&gt;Escape" type="empty"/>
       <property name="XF86WWW" type="empty"/>
+      <property name="HomePage" type="empty"/>
       <property name="XF86Mail" type="empty"/>
       <property name="Print" type="empty"/>
+      <property name="&lt;Alt&gt;Print" type="empty"/>
+      <property name="&lt;Shift&gt;Print" type="empty"/>
+      <property name="&lt;Super&gt;e" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;f" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Escape" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Shift&gt;Escape" type="empty"/>
+      <property name="&lt;Super&gt;r" type="empty">
+        <property name="startup-notify" type="empty"/>
+      </property>
       <property name="&lt;Control&gt;&lt;Alt&gt;Delete" type="empty"/>
       <property name="&lt;Control&gt;Escape" type="empty"/>
     </property>
@@ -44,8 +54,7 @@
       <property name="&lt;Super&gt;1" type="string" value="sh /home/dac/.scripts/pscircle-draw.sh">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="&lt;Super&gt;e" type="string" value="emacsclient  -c"/>
-      <property name="&lt;Super&gt;f" type="string" value="emacsclient -c --eval &apos;(dired &quot;~/&quot;)&apos;"/>
+      <property name="&lt;Super&gt;f" type="string" value="thunar"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -102,6 +111,14 @@
       <property name="&lt;Primary&gt;F10" type="empty"/>
       <property name="&lt;Primary&gt;F11" type="empty"/>
       <property name="&lt;Primary&gt;F12" type="empty"/>
+      <property name="&lt;Super&gt;KP_Left" type="empty"/>
+      <property name="&lt;Super&gt;KP_Right" type="empty"/>
+      <property name="&lt;Super&gt;KP_Up" type="empty"/>
+      <property name="&lt;Super&gt;KP_Down" type="empty"/>
+      <property name="&lt;Super&gt;KP_Page_Up" type="empty"/>
+      <property name="&lt;Super&gt;KP_Home" type="empty"/>
+      <property name="&lt;Super&gt;KP_End" type="empty"/>
+      <property name="&lt;Super&gt;KP_Next" type="empty"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Down" type="empty"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Left" type="empty"/>
       <property name="&lt;Control&gt;&lt;Shift&gt;&lt;Alt&gt;Left" type="empty"/>
@@ -142,11 +159,7 @@
       <property name="Escape" type="string" value="cancel_key"/>
       <property name="&lt;Control&gt;&lt;Shift&gt;&lt;Alt&gt;Up" type="string" value="move_window_up_key"/>
       <property name="&lt;Control&gt;&lt;Shift&gt;&lt;Alt&gt;Left" type="string" value="move_window_left_key"/>
-      <property name="Left" type="string" value="left_key"/>
-      <property name="Down" type="string" value="down_key"/>
       <property name="&lt;Control&gt;&lt;Shift&gt;&lt;Alt&gt;Right" type="string" value="move_window_right_key"/>
-      <property name="Right" type="string" value="right_key"/>
-      <property name="Up" type="string" value="up_key"/>
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Super&gt;Tab" type="string" value="cycle_windows_key"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;ISO_Left_Tab" type="string" value="cycle_reverse_windows_key"/>
@@ -165,6 +178,10 @@
       <property name="&lt;Primary&gt;&lt;Super&gt;l" type="string" value="tile_right_key"/>
       <property name="&lt;Super&gt;h" type="string" value="left_workspace_key"/>
       <property name="&lt;Super&gt;l" type="string" value="right_workspace_key"/>
+      <property name="k" type="string" value="up_key"/>
+      <property name="j" type="string" value="down_key"/>
+      <property name="h" type="string" value="left_key"/>
+      <property name="l" type="string" value="right_key"/>
     </property>
   </property>
   <property name="providers" type="array">

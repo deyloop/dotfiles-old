@@ -1,6 +1,6 @@
 break-countdown-seconds=1500
 lock-countdown-seconds=300
-postpone-countdown-seconds=120
+postpone-countdown-seconds=300
 enabled=false
 display-seconds=true
 display-hours=false

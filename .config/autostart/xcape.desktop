@@ -4,7 +4,7 @@ Version=0.9.4
 Type=Application
 Name=xcape
 Comment=
-Exec=xcape -e 'Super_L=Alt_L|F1;Shift_L=Escape'
+Exec=xcape -e 'Super_L=Alt_L|F1;Shift_L=Escape;Caps_Lock=Ctrl_L'
 OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
