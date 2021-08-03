@@ -154,6 +154,7 @@ alias emacs-stop='systemctl --user stop emacs'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 . ~/.scripts/rclone-sync.sh
+. ~/.scripts/cdl.sh
 
 # vi keybindings for terminal
 set -o vi
