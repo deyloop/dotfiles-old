@@ -9,7 +9,7 @@ If migrating to a new machine, use the following to automatically clone all the 
 Make sure you have logged out of the =XFCE= session and execute the following inside a =tty=
 
 #+BEGIN_SRC shell
-curl -Lks https://bit.ly/36qFBhu | /bin/bash
+curl -Lks https://bit.ly/37xKDZ3 | /bin/bash
 #+END_SRC
 
 Restart the machine and log back in. Don't log in without restarting.
