@@ -9,7 +9,6 @@ set encoding=utf-8
 set fileencodings=utf-8
 filetype plugin indent on
 
-set number relativenumber
 set nowrap
 set autoindent
 set smartindent
@@ -34,23 +33,25 @@ set wildmenu          " enable fuzzy menu
 set wildignore+=**/.git/**,**/__pychache__/**,**/venv/**,**/node_modules/**,**/dist/**.**/build/**,*.o,*.pyc,*swp
 set hidden
 
+set viminfo='10,\"100,:20,%,n~/.viminfo
+augroup restoreline
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+
 " Fast rendering
 set ttyfast
 
 " Toggle Whitespace character rendering
 nnoremap <leader>tl :set list!<CR>
-set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
+set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·,eol:↩
 
 nnoremap <F5> :source $MYVIMRC<CR>
-
-set completeopt=menu,menuone,preview,noselect,noinsert
-set omnifunc=ale#completion#OmniFunc
-let g:ale_completion_autoimport = 1
 
 " Plugins
 call plug#begin('~/.local/share/vim/plugins')
 
-  Plug 'dense-analysis/ale'
+  " Language Server support
+  Plug 'natebosch/vim-lsc'
 
   " Status line
   Plug 'itchyny/lightline.vim'
@@ -61,12 +62,30 @@ call plug#begin('~/.local/share/vim/plugins')
   " Debugging
   Plug 'puremourning/vimspector'
 
+  " Essentials
+  Plug 'tpope/vim-surround'
+  Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 " ColorScheme Settings
-set termguicolors
+if exists('+termguicolors') && ($TERM == "xterm-256color" || $TERM == "tmux-256color")
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 set background=dark
-set noshowmode
+
+let g:PaperColor_Theme_Options = {
+      \ 'theme': {
+        \ 'default.dark': {
+          \ 'override' : {
+            \ 'color00' : ['#1B1E21', ''],
+          \ }
+        \ }
+      \ }
+    \ }
 
 colorscheme PaperColor
 
@@ -86,37 +105,45 @@ let g:lightline = {
         \ "\<C-s>": 'SB',
         \ 't': 'T',
         \ },
-      \ }
+        \ }
 
-" Language support (LSP) via ALE
-let g:ale_linters = {
-  \'rust': ['cargo', 'analyzer'],
-  \'cpp': ['clangd'],
-  \'c': ['clangd']
-\}
+set noshowmode
 
-let g:ale_fixers = {
-  \'rust' : ['rustfmt']
-\}
+" Language support (LSP) via vim-lsc
+let g:lsc_server_commands = {
+      \ 'rust': 'rust-analyzer'
+      \}
+let g:lsc_auto_map = {
+      \ 'GoToDefinition': 'gd',
+      \ 'FindReferences': 'gr',
+      \ 'Rename': 'gR',
+      \ 'ShowHover': 'K',
+      \ 'FindCodeActions': 'ga',
+      \ 'Completion': 'omnifunc',
+      \}
+let g:lsc_hover_popup = v:false
 
-let g:ale_fix_on_save = 1
+set completeopt=menu,menuone,noselect,noinsert
 
-nnoremap gd :ALEGoToDefinition<CR>
+let g:lsc_enable_autocomplete = v:false
+let g:lsc_enable_diagnostics = v:true
+let g:lsc_reference_highlights = v:false
+let g:lsc_trace_level = 'off'
 
 set signcolumn=number
 
 " Code folding
 set nofoldenable
 function! MyFoldText()
-    let line = getline(v:foldstart)
-    let foldedlinecount = v:foldend - v:foldstart + 1
-    return ' «» '. foldedlinecount . ' ' . line
+  let line = getline(v:foldstart)
+  let foldedlinecount = v:foldend - v:foldstart + 1
+  return ' «» '. foldedlinecount . ' ' . line
 endfunction
 set foldtext=MyFoldText()
 set fillchars=fold:\ 
 
 " Debugging using Vimspector
-let g:vimspector_install_gadgets = ['CodeLLDB']
+let g:vimspector_install_gadgets = ['CodeLLDB', 'vscode-cpptools', 'lldb-vscode']
 
 nmap <leader>dd <Plug>VimspectorContinue
 nmap <leader>dx <Plug>VimspectorStop
@@ -134,6 +161,9 @@ xmap <leader>di <Plug>VimspectorBalloonEval
 " netrw -- if I ever need it
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
+
+" Increment and decrement numbers using arrow keys
+nnoremap <Up> <C-a>
+nnoremap <Down> <C-x>
