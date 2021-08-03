@@ -140,9 +140,9 @@ ex ()
 
 export PATH="$HOME/tools/flutter/bin:$PATH"
 export PATH="$HOME/.config/emacs/bin/:$PATH"
-export PATH="$HOME/.scripts/:$PATH"
 export PATH="$HOME/tools/:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/bin/scripts/:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 alias dotfiles='/usr/bin/git --git-dir=/home/dac/.dotfiles --work-tree=/home/dac'
@@ -153,8 +153,8 @@ alias emacs-stop='systemctl --user stop emacs'
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-. ~/.scripts/rclone-sync.sh
-. ~/.scripts/cdl.sh
+. rclone-sync.sh
+. cdl.sh
 
 # vi keybindings for terminal
 set -o vi
