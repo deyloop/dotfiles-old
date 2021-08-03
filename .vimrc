@@ -111,7 +111,15 @@ set noshowmode
 
 " Language support (LSP) via vim-lsc
 let g:lsc_server_commands = {
-      \ 'rust': 'rust-analyzer'
+      \ 'rust': 'rust-analyzer',
+      \ 'cpp': {
+        \ 'command': 'clangd --background-index',
+        \ 'suppress_stderr': v:true
+        \ },
+      \ 'c': {
+        \ 'command': 'clangd --background-index',
+        \ 'suppress_stderr': v:true
+        \ },
       \}
 let g:lsc_auto_map = {
       \ 'GoToDefinition': 'gd',
