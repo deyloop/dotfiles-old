@@ -59,34 +59,58 @@ match_lhs=""
 	&& match_lhs=$(dircolors --print-database)
 [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
 
+
 if ${use_color} ; then
-	# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
-	if type -P dircolors >/dev/null ; then
-		if [[ -f ~/.dir_colors ]] ; then
-			eval $(dircolors -b ~/.dir_colors)
-		elif [[ -f /etc/DIR_COLORS ]] ; then
-			eval $(dircolors -b /etc/DIR_COLORS)
-		fi
-	fi
+  # Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
+  if type -P dircolors >/dev/null ; then
+    if [[ -f ~/.dir_colors ]] ; then
+      eval $(dircolors -b ~/.dir_colors)
+    elif [[ -f /etc/DIR_COLORS ]] ; then
+      eval $(dircolors -b /etc/DIR_COLORS)
+    fi
+  fi
 
-	if [[ ${EUID} == 0 ]] ; then
-		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\n\$\[\033[00m\] '
-	else
-		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\n\$\[\033[00m\] '
-	fi
-
-	alias ls='ls --color=auto'
-	alias grep='grep --colour=auto'
-	alias egrep='egrep --colour=auto'
-	alias fgrep='fgrep --colour=auto'
-else
-	if [[ ${EUID} == 0 ]] ; then
-		# show root@ when we don't have colors
-		PS1='\u@\h \W\n\$ '
-	else
-		PS1='\u@\h \w\n\$ '
-	fi
+  alias ls='ls --color=auto'
+  alias grep='grep --colour=auto'
+  alias egrep='egrep --colour=auto'
+  alias fgrep='fgrep --colour=auto'
 fi
+
+# Sets the PS1 prompt, loud and proper. Has git integrations and previous
+# command status
+__ps1() {
+  local exit_code="$?"
+  local branch=$(git branch --show-current 2>/dev/null)
+
+  if ${use_color}; then
+    local q='\[\e[0;35m\]'
+    local g='\[\e[0;32m\]'
+    local h='\[\e[0;34m\]'
+    local w='\[\e[1;36m\]'
+    local b='\[\e[1;31m\]'
+    local u='\[\e[0;33m\]'
+    local x='\[\e[0m\]'
+    local s='\[\e[0;31m\]'
+
+    local user="$u\u"
+    local host="$h\h"
+    local dir="$w\W"
+    [[ ${EUID} == 0 ]] && user="${u}root"
+    [[ -n "$branch" ]] && branch="$g(⎇ $b$branch$g)"
+    [[ $exit_code != 0 ]] && exit_code="⚠️  ${s}$exit_code" || exit_code=""
+
+    PS1="$q[$user$g@$host$g:$dir$branch$q] $exit_code\n$q\$$x "
+  else
+    local user="\u"
+    local host="\h"
+    local dir="\W"
+    [[ ${EUID} == 0 ]] && user="root"
+    [[ -n "$branch" ]] && branch="(⎇ $branch)"
+
+    PS1="[$user@$host:$dir$branch]\n\$"
+  fi
+}  
+PROMPT_COMMAND="__ps1"
 
 unset use_color safe_term match_lhs sh
 
