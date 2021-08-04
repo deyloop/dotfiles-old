@@ -3,7 +3,7 @@
 Description=Runs pscircle to continuously update desktop wallpaper
 
 [Service]
-ExecStart=/bin/bash -c "while true; do /bin/sh /home/dac/.scripts/pscircle-draw.sh; sleep 30; done"
+ExecStart=/bin/bash -c "while true; do /bin/sh /home/dac/.local/bin/scripts/pscircle-draw; sleep 30; done"
 
 [Install]
 WantedBy=default.target
