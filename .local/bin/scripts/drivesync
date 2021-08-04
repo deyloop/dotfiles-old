@@ -1,10 +1,8 @@
 #!/bin/bash
 
 # Utils for syncing with remote drives.
-#
-# source into .bashrc to use from anywhere
 
-drivesync() {
+_drivesync() {
     # check if the prerequisites are installed,
     # Install them if not already installed
     if ! command -v rclone &> /dev/null
@@ -62,6 +60,12 @@ drivesync() {
             cd "$CURDIR" || return
             ;;
         *)
-            echo "UNRECOGNIZED COMMAND";;
+            echo "UNRECOGNIZED COMMAND"
+            echo "commands: backup restore up down"
+            echo "backup and restore - for Non-private Files (~/Drive)"
+            echo "up and down - for Private Files (~/Private)"
+            ;;
     esac
 }
+
+_drivesync "$*"

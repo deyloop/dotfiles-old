@@ -138,6 +138,10 @@ ex ()
   fi
 }
 
+# The above lines were added by default on Manjaro
+
+# Personal Options
+
 export PATH="$HOME/tools/flutter/bin:$PATH"
 export PATH="$HOME/.config/emacs/bin/:$PATH"
 export PATH="$HOME/tools/:$PATH"
@@ -147,13 +151,14 @@ export PATH="$HOME/.local/bin:$PATH"
 
 alias dotfiles='/usr/bin/git --git-dir=/home/dac/.dotfiles --work-tree=/home/dac'
 
+alias scripts='cd ~/.local/bin/scripts'
+
 alias emacs-restart='systemctl --user restart emacs'
 alias emacs-start='systemctl --user start emacs'
 alias emacs-stop='systemctl --user stop emacs'
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-. rclone-sync.sh
 . cdl.sh
 
 # vi keybindings for terminal
