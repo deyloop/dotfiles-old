@@ -166,6 +166,10 @@ ex ()
 
 # Personal Options
 
+CDPATH="."
+CDPATH+=":~/.local/bin"
+CDPATH+=":~/repos"
+
 export PATH="$HOME/tools/flutter/bin:$PATH"
 export PATH="$HOME/.config/emacs/bin/:$PATH"
 export PATH="$HOME/tools/:$PATH"
