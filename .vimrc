@@ -26,6 +26,7 @@ set colorcolumn=80
 set clipboard=unnamed
 set incsearch
 set showcmd
+set shortmess=aoOtTI
 
 set matchpairs+=<:>   " Use % to jump between html tags as well
 set path=$PWD/**      " enable fuzzy file search
@@ -121,6 +122,7 @@ let g:lsc_server_commands = {
         \ 'suppress_stderr': v:true
         \ },
       \}
+
 let g:lsc_auto_map = {
       \ 'GoToDefinition': 'gd',
       \ 'FindReferences': 'gr',
@@ -139,6 +141,26 @@ let g:lsc_reference_highlights = v:false
 let g:lsc_trace_level = 'off'
 
 set signcolumn=number
+
+" Auto-Formatting code on save
+function! FormatBuffer(cmd)
+  if &modified
+    let cursor_pos = getpos('.')
+    execute "%!" . a:cmd
+    if v:shell_error | undo | endif
+    call setpos('.', cursor_pos)
+  endif
+endfunction
+
+augroup autoformat
+  au!
+  if executable("clang-format")
+    au BufWritePre *.c,*.cpp,*.h,*.hpp,*.cxx,*.hxx silent call FormatBuffer("clang-format")
+  endif
+  if executable("rustfmt")
+    au BufWritePre *.rs silent call FormatBuffer("rustfmt")
+  endif
+augroup END
 
 " Code folding
 set nofoldenable
