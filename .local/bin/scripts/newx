@@ -6,7 +6,7 @@
 # as the second argument.
 
 if [[ -z "${SCRIPTS_DIR}" ]]; then
-  SCRIPTS_DIR="$HOME/.scripts"
+  SCRIPTS_DIR="$HOME/.local/bin/scripts"
 fi
 
 [[ $# -ge 1 ]] && script_name="$1"

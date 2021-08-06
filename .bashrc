@@ -170,12 +170,16 @@ CDPATH="."
 CDPATH+=":~/.local/bin"
 CDPATH+=":~/repos"
 
-export PATH="$HOME/tools/flutter/bin:$PATH"
-export PATH="$HOME/.config/emacs/bin/:$PATH"
-export PATH="$HOME/tools/:$PATH"
-export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/.local/bin/scripts/:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+export SCRIPTS_DIR="$HOME/.local/bin/scripts"
+
+PATH="$HOME/tools/flutter/bin:$PATH"
+PATH="$HOME/.config/emacs/bin/:$PATH"
+PATH="$HOME/tools/:$PATH"
+PATH="$HOME/go/bin:$PATH"
+PATH="$SCRIPTS_DIR:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH"
+
 
 alias dotfiles='/usr/bin/git --git-dir=/home/dac/.dotfiles --work-tree=/home/dac'
 
