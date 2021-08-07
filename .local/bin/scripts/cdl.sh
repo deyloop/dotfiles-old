@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/bash
 
 cdl () {
-  cd "$@"
+  cd "$@" || return
   ls -la --color='auto'
 }

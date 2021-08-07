@@ -7,12 +7,14 @@ dotfiles() {
 }
 
 mkdir -p .dotfiles.bkp
-dotfiles checkout
-if [ $? = 0 ]; then
+if dotfiles checkout; then
     echo "Checked out dotfiles";
 else
     echo "Backing up pre-existing dotfiles";
-    dotfiles checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | xargs -d $'\n' sh -c 'for arg do mkdir -p `dirname .dotfiles.bkp/"$arg"`; mv "$arg" .dotfiles.bkp/"$arg"; done' _
+    dotfiles checkout 2>&1 \
+      | grep -E "\s+\." \
+      | awk {'print $1'}\
+      | xargs -d $'\n' sh -c 'for arg do mkdir -p `dirname .dotfiles.bkp/"$arg"`; mv "$arg" .dotfiles.bkp/"$arg"; done' _
 fi;
 dotfiles checkout
 

@@ -4,8 +4,8 @@
 
 if command -v pacman &> /dev/null
 then
-   sudo pacman -S pacaur emacs 
-   pacaur -S rofi vimix-icon-theme community/code inkscape pscircle
+   sudo pacman -S yay
+   pacaur -S rofi pscircle
 
    # flutter and dart sdk
    git clone https://github.com/flutter/flutter.git ~/tools/flutter
@@ -18,9 +18,4 @@ then
    # pscircle
    systemctl --user enable pscircle.service
    systemctl --user start pscircle.service
-   
-   # installs doom emacs
-   doom install
-   doom doctor
-   
 fi

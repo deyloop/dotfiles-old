@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # Toggles the Font size of the terminal to and from 'Big Font' mode.
 # This is done by changing the xfce4 terminalrc file directly to not use

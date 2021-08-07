@@ -86,7 +86,7 @@ __ps1() {
     local q='\[\e[0;35m\]'
     local g='\[\e[0;32m\]'
     local h='\[\e[0;34m\]'
-    local w='\[\e[1;36m\]'
+    local w='\[\e[1;33m\]'
     local b='\[\e[1;31m\]'
     local u='\[\e[0;33m\]'
     local x='\[\e[0m\]'
