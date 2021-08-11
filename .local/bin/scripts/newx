@@ -20,7 +20,7 @@ script_path="$script_dir/$script_name"
 echo "#!/usr/bin/bash" >>"$script_path"
 
 # make it executable
-chmod +x "$script_path"
+chmod ug+x "$script_path"
 
 # open script to edit
 exec vim "$script_path"
