@@ -26,6 +26,7 @@ set colorcolumn=80
 set clipboard=unnamed
 set incsearch
 set showcmd
+set textwidth=72
 set shortmess=aoOtTI
 
 set matchpairs+=<:>   " Use % to jump between html tags as well
@@ -66,6 +67,10 @@ call plug#begin('~/.local/share/vim/plugins')
   " Essentials
   Plug 'tpope/vim-surround'
   Plug 'jiangmiao/auto-pairs'
+
+  " Markdown with pandoc
+  Plug 'vim-pandoc/vim-pandoc'   
+  Plug 'vim-pandoc/vim-pandoc-syntax'   
 
 call plug#end()
 
@@ -109,6 +114,9 @@ let g:lightline = {
         \ }
 
 set noshowmode
+
+" pandoc settings
+let pandoc#formatting#textwidth = 72
 
 " Language support (LSP) via vim-lsc
 let g:lsc_server_commands = {
