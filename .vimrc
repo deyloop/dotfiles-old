@@ -23,7 +23,7 @@ set backspace=indent,eol,start
 set splitbelow
 set cursorline
 set colorcolumn=80
-set clipboard=unnamed
+set clipboard=unnamedplus
 set incsearch
 set showcmd
 set textwidth=72
