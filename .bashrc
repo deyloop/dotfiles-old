@@ -169,6 +169,7 @@ ex ()
 CDPATH="."
 CDPATH+=":~/.local/bin"
 CDPATH+=":~/repos"
+CDPATH+=":~/repos/github.com/AnurupDey"
 
 export SCRIPTS_DIR="$HOME/.local/bin/scripts"
 
