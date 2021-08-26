@@ -1,5 +1,8 @@
 # Dotfiles
 
+> ⚠️ This repository is outdated. <br>
+> My current dotfiles can be found at https://github.com/deyloop/dot
+
 This repository contains my personal dotfiles and scripts to replicate the setup on any machine.
 
 ## Installation
